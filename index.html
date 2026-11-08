@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11100e">
+  <title>Jefferson's Kitchen | Ghanaian Fine Dining</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #11100e;
+      --panel: #1b1915;
+      --gold: #d6ad63;
+      --gold-light: #f0d49b;
+      --white: #f7f3eb;
+      --muted: #aaa399;
+      --border: rgba(214,173,99,.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.15;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(17,16,14,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .logo span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+      color: #ddd5c8;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-button {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 10px 15px;
+      border-radius: 4px;
+    }
+
+    .cart-count {
+      background: var(--gold);
+      color: #17130d;
+      border-radius: 50%;
+      padding: 1px 6px;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 26px;
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #17130d;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: var(--gold);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #17130d;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(17,16,14,.97) 5%, rgba(17,16,14,.83) 48%, rgba(17,16,14,.35)),
+        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 650px;
+      padding: 100px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 78px);
+      margin: 22px 0;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: #d0c9be;
+      max-width: 490px;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 65px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .intro-image {
+      min-height: 400px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.15), transparent),
+        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+    }
+
+    .intro-text h2,
+    .section-heading h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin: 15px 0 20px;
+    }
+
+    .intro-text p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* SECTION HEADINGS */
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* MENU */
+
+    .menu-section {
+      background: #171511;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+      padding: 10px 17px;
+      border-radius: 30px;
+      font-size: 12px;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--gold);
+      color: #17130d;
+      border-color: var(--gold);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .food-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: .25s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .food-image {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      font-size: 70px;
+      background: linear-gradient(135deg, #49351e, #1c1913);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .food-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .food-info {
+      padding: 20px;
+    }
+
+    .food-info h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .food-info p {
+      color: var(--muted);
+      font-size: 12px;
+      min-height: 40px;
+    }
+
+    .food-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .price {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .add-btn {
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      padding: 9px 12px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .add-btn:hover {
+      background: var(--gold);
+      color: #17130d;
+    }
+
+    /* EXPERIENCE */
+
+    .experience {
+      background:
+        linear-gradient(rgba(17,16,14,.9), rgba(17,16,14,.9)),
+        url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85")
+        center/cover fixed;
+      text-align: center;
+    }
+
+    .experience h2 {
+      font-size: clamp(35px, 6vw, 55px);
+      margin: 18px 0;
+    }
+
+    .experience p {
+      color: #c4bdb1;
+      max-width: 550px;
+      margin: 0 auto 28px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .contact-info h2 {
+      font-size: 40px;
+      margin: 15px 0;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .contact-detail {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      color: #ddd5c8;
+      font-size: 14px;
+    }
+
+    .contact-form {
+      background: var(--panel);
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-form h3 {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: #11100e;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 14px;
+      margin-bottom: 13px;
+      outline: none;
+      border-radius: 3px;
+    }
+
+    .contact-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer .logo {
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    /* CART PANEL */
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: min(400px, 100%);
+      height: 100vh;
+      background: #1b1915;
+      z-index: 200;
+      padding: 25px;
+      transition: .3s;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.open {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+    }
+
+    .cart-header h2 {
+      font-size: 25px;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 25px;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .cart-item small {
+      color: var(--gold);
+    }
+
+    .remove-btn {
+      border: none;
+      color: #e18a7d;
+      background: none;
+      font-size: 12px;
+    }
+
+    .cart-total {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+    }
+
+    .cart-checkout {
+      width: 100%;
+      text-align: center;
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 150;
+      display: none;
+    }
+
+    .cart-overlay.show {
+      display: block;
+    }
+
+    .empty-cart {
+      color: var(--muted);
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%, 100px);
+      background: var(--gold);
+      color: #17130d;
+      padding: 12px 20px;
+      border-radius: 4px;
+      z-index: 300;
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #171511;
+        flex-direction: column;
+        padding: 25px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .intro-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+    }
+
+    @media(max-width: 520px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .food-image {
+        height: 230px;
+      }
+
+      .hero h1 {
+        font-size: 47px;
+      }
+
+      .intro-image {
+        min-height: 280px;
+      }
+
+      .cart-button {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container navbar">
+
+      <a href="#home" class="logo">
+        JEFFERSON'S
+        <span>Kitchen</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-button" onclick="openCart()">
+          Cart <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">The taste of Ghana, elevated</div>
+
+          <h1>
+            Experience<br>
+            Ghanaian <span>Luxury.</span>
+          </h1>
+
+          <p>
+            Discover the richness of Ghanaian cuisine,
+            prepared with passion, tradition and a modern
+            touch. Welcome to Jefferson's Kitchen.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#menu" class="btn btn-primary">Explore Menu</a>
+            <a href="#about" class="btn btn-outline">Our Story</a>
+          </div>
+
+          <div class="hero-note">
+            Authentic Ghanaian Flavours · Exceptional Experience
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container intro-grid">
+
+        <div class="intro-image"></div>
+
+        <div class="intro-text">
+          <div class="eyebrow">Welcome to Jefferson's</div>
+
+          <h2>A Celebration of <span class="gold">Ghanaian Taste.</span></h2>
+
+          <p>
+            At Jefferson's Kitchen, we believe every meal
+            should tell a story. Our menu celebrates the
+            flavours of Ghana, bringing familiar favourites
+            to the table with an elegant presentation.
+          </p>
+
+          <p>
+            From delicious jollof rice to traditional fufu,
+            every dish represents the warmth and richness
+            of Ghanaian food culture.
+          </p>
+
+          <a href="#menu" class="btn btn-outline">Discover Our Menu</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">Our Signature Selection</div>
+          <h2>Explore Our <span class="gold">Menu.</span></h2>
+          <p>
+            A selection of Ghanaian favourites made for
+            unforgettable dining experiences.
+          </p>
+          <p style="margin-top:10px;color:#d6ad63;font-size:11px;">
+            DEMONSTRATION MENU — SAMPLE PRICES
+          </p>
+        </div>
+
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterMenu('all', this)">All</button>
+          <button class="filter-btn" onclick="filterMenu('rice', this)">Rice</button>
+          <button class="filter-btn" onclick="filterMenu('traditional', this)">Traditional</button>
+          <button class="filter-btn" onclick="filterMenu('grill', this)">Grills</button>
+          <button class="filter-btn" onclick="filterMenu('drinks', this)">Drinks</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+
+          <article class="food-card" data-category="rice">
+            <div class="food-image">
+              <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80" alt="Rice dish" loading="lazy">
+            </div>
+            <div class="food-info">
+              <h3>Special Jollof</h3>
+              <p>Ghana-style jollof rice served with chicken and fresh salad.</p>
+              <div class="food-bottom">
+                <span class="price">GH₵ 65</span>
+                <button class="add-btn" onclick="addToCart('Special Jollof', 65)">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card" data-category="traditional">
+            <div class="food-image">🍲</div>
+            <div class="food-info">
+              <h3>Fufu & Light Soup</h3>
+              <p>Traditional fufu served with rich Ghanaian light soup.</p>
+              <div class="food-bottom">
+                <span class="price">GH₵ 75</span>
+                <button class="add-btn" onclick="addToCart('Fufu & Light Soup', 75)">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card" data-category="traditional">
+            <div class="food-image">🥘</div>
+            <div class="food-info">
+              <h3>Banku & Tilapia</h3>
+              <p>Fresh grilled tilapia with banku and spicy pepper sauce.</p>
+              <div class="food-bottom">
+                <span class="price">GH₵ 95</span>
+                <button class="add-btn" onclick="addToCart('Banku & Tilapia', 95)">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card" data-category="rice">
+            <div class="food-image">🍚</div>
+            <div class="food-info">
+              <h3>Waakye Special</h3>
+              <p>Waakye served with spaghetti, gari, egg and shito.</p>
+              <div class="food-bottom">
+                <span class="price">GH₵ 55</span>
+                <button class="add-btn" onclick="addToCart('Waakye Special', 55)">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card" data-category="grill">
+            <div class="food-image">🍗</div>
+            <div class="food-info">
+              <h3>Grilled Chicken</h3>
+              <p>Seasoned grilled chicken served with a side of your choice.</p>
+              <div class="food-bottom">
+                <span class="price">GH₵ 80</span>
+                <button class="add-btn" onclick="addToCart('Grilled Chicken', 80)">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card" data-category="drinks">
+            <div class="food-image">🥤</div>
+            <div class="food-info">
+              <h3>Fresh Sobolo</h3>
+              <p>Refreshing Ghanaian hibiscus drink, served chilled.</p>
+              <div class="food-bottom">
+                <span class="price">GH₵ 18</span>
+                <button class="add-btn" onclick="addToCart('Fresh Sobolo', 18)">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience">
+      <div class="container">
+        <div class="eyebrow">More than a meal</div>
+        <h2>Good Food. <span class="gold">Beautiful Moments.</span></h2>
+        <p>
+          Celebrate Ghanaian hospitality with delicious
+          meals, welcoming service and an atmosphere
+          designed for memorable moments.
+        </p>
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-info">
+          <div class="eyebrow">Get in Touch</div>
+          <h2>Visit <span class="gold">Jefferson's Kitchen.</span></h2>
+          <p>
+            Have a question or want to place an order?
+            Send us a message. Our demonstration contact
+            details can be replaced with the real business details.
+          </p>
+
+          <div class="contact-detail">
+            <strong class="gold">Location</strong><br>
+            Accra, Ghana — sample location
+          </div>
+
+          <div class="contact-detail">
+            <strong class="gold">Opening Hours</strong><br>
+            Monday – Sunday: 10:00 AM – 10:00 PM (sample hours)
+          </div>
+
+          <div class="contact-detail">
+            <strong class="gold">Orders</strong><br>
+            WhatsApp ordering demonstration
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Send a Message</h3>
+
+          <input type="text" id="customerName" placeholder="Your name" required>
+
+          <input type="email" id="customerEmail" placeholder="Your email" required>
+
+          <textarea id="customerMessage" placeholder="Your message..." required></textarea>
+
+          <button class="btn btn-primary" type="submit">
+            Send via WhatsApp
+          </button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="logo">
+        JEFFERSON'S
+        <span>Kitchen</span>
+      </div>
+      <p>© <span id="year"></span> Jefferson's Kitchen. Demonstration website.</p>
+      <p style="margin-top:8px;">Crafted with passion in Ghana 🇬🇭</p>
+    </div>
+  </footer>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <!-- CART PANEL -->
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h2>Your Order</h2>
+      <button class="close-cart" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="gold" id="cartTotal">GH₵ 0</span>
+    </div>
+
+    <button class="btn btn-primary cart-checkout" onclick="checkout()">
+      Order on WhatsApp
+    </button>
+  </aside>
+
+  <div class="toast" id="toast">Added to your cart!</div>
+
+  <script>
+    // DEMONSTRATION SETTINGS
+    // Replace this with the restaurant's real WhatsApp number.
+    // Ghana format: 233 followed by the number, without the first 0.
+    const WHATSAPP_NUMBER = "233XXXXXXXXX";
+
+    // SHOPPING CART
+    let cart = [];
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({
+          name: name,
+          price: price,
+          quantity: 1
+        });
+      }
+
+      updateCart();
+      showToast(name + " added to cart");
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cartItems");
+      const cartCount = document.getElementById("cartCount");
+      const cartTotal = document.getElementById("cartTotal");
+
+      let totalItems = 0;
+      let totalPrice = 0;
+
+      cartItems.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItems.innerHTML =
+          '<p class="empty-cart">Your cart is empty.</p>';
+      }
+
+      cart.forEach((item, index) => {
+        totalItems += item.quantity;
+        totalPrice += item.price * item.quantity;
+
+        const row = document.createElement("div");
+        row.className = "cart-item";
+
+        const details = document.createElement("div");
+        const title = document.createElement("strong");
+        const amount = document.createElement("small");
+
+        title.textContent = item.name + " × " + item.quantity;
+        amount.textContent =
+          "GH₵ " + (item.price * item.quantity);
+
+        details.appendChild(title);
+        details.appendChild(document.createElement("br"));
+        details.appendChild(amount);
+
+        const remove = document.createElement("button");
+        remove.className = "remove-btn";
+        remove.textContent = "Remove";
+        remove.onclick = () => removeFromCart(index);
+
+        row.appendChild(details);
+        row.appendChild(remove);
+        cartItems.appendChild(row);
+      });
+
+      cartCount.textContent = totalItems;
+      cartTotal.textContent = "GH₵ " + totalPrice;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function openCart() {
+      document.getElementById("cartPanel").classList.add("open");
+      document.getElementById("cartOverlay").classList.add("show");
+    }
+
+    function closeCart() {
+      document.getElementById("cartPanel").classList.remove("open");
+      document.getElementById("cartOverlay").classList.remove("show");
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        showToast("Your cart is empty");
+        return;
+      }
+
+      let message = "Hello Jefferson's Kitchen! I would like to order:\n\n";
+      let total = 0;
+
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        message += item.name + " x " + item.quantity +
+          " — GH₵ " + subtotal + "\n";
+      });
+
+      message += "\nTotal: GH₵ " + total;
+      message += "\n\nPlease confirm my order.";
+
+      sendWhatsApp(message);
+    }
+
+    // WHATSAPP LINK
+    function sendWhatsApp(message) {
+      if (!/^233\d{9}$/.test(WHATSAPP_NUMBER)) {
+        alert(
+          "Demo mode: Replace WHATSAPP_NUMBER in the JavaScript with the restaurant's real Ghana WhatsApp number."
+        );
+        return;
+      }
+
+      const url =
+        "https://wa.me/" + WHATSAPP_NUMBER +
+        "?text=" + encodeURIComponent(message);
+
+      window.open(url, "_blank");
+    }
+
+    // MENU FILTERS
+    function filterMenu(category, button) {
+      const cards = document.querySelectorAll(".food-card");
+      const buttons = document.querySelectorAll(".filter-btn");
+
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      cards.forEach(card => {
+        if (
+          category === "all" ||
+          card.dataset.category === category
+        ) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // MOBILE NAVIGATION
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+      });
+    });
+
+    // CONTACT FORM
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("customerName").value.trim();
+      const email = document.getElementById("customerEmail").value.trim();
+      const message = document.getElementById("customerMessage").value.trim();
+
+      const whatsappMessage =
+        "Hello Jefferson's Kitchen!\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Message: " + message;
+
+      sendWhatsApp(whatsappMessage);
+    });
+
+    // TOAST MESSAGE
+    let toastTimer;
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    // CURRENT YEAR
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    updateCart();
+  </script>
+
+</body>
+</html>
